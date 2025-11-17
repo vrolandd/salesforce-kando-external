@@ -6,11 +6,9 @@ export async function GET() {
 }
 
 export async function POST({ request }: { request: Request }) {
-    const orderData = await request.json();
+    console.log('Received order data:', request);
 
-    console.log('Received order data:', orderData);
-
-    return new Response(JSON.stringify({ status: 'Order received', data: orderData }), {
+    return new Response(JSON.stringify({ status: 'Order received', data: request }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
     });
